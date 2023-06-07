@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  display: none;
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline;
+  margin-right: 4px;
+  color: #f00;
+  font-size: 13px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: "*";
+}
+
+nz-form-item {
+  margin-bottom: 2em !important;
+}

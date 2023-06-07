@@ -1,0 +1,29 @@
+<form [formGroup]="form" class="login-form" nz-form nzLayout="vertical">
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Title</nz-form-label>
+    <nz-form-control [nzErrorTip]="validation_template">
+      <input formControlName="title" nz-input/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired>Content</nz-form-label>
+    <nz-form-control [nzErrorTip]="validation_template">
+      <textarea formControlName="content" nz-input rows="8"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Attachments</nz-form-label>
+    <nz-form-control>
+      <nz-upload [(nzFileList)]="file_list" [nzBeforeUpload]="manualAdd" [nzMultiple]="true" nzType="drag">
+        <p class="ant-upload-drag-icon"><span nz-icon nzType="inbox"></span></p>
+        <p class="ant-upload-text">Click or Drag File</p>
+      </nz-upload>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button (click)="submit()" [nzType]="'primary'" nz-button nzBlock>Submit</button>
+
+</form>

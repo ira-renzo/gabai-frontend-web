@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="true">
+  <ng-container *ngFor="let validator of validators; index as i">
+    <ng-container *ngSwitchCase="control.hasError(validator)">
+      <ng-container *ngIf="control.invalid && (control.dirty || control.touched)">
+        <span style="margin-top: 0.5em">
+          {{ control.errors?.hasOwnProperty(validator) ? control.errors![validator].message || validationMessages[i] : null }}
+        </span>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
