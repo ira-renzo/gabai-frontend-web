@@ -1,4 +1,6 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
 
 export interface Message {
   author: string
@@ -11,16 +13,39 @@ export interface Message {
   styleUrls: ['./chat-view.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ChatViewComponent {
+export class ChatViewComponent implements OnInit {
 
   name = "User"
-  sample_text = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
-  messages: Message[] = [
-    {author: "User", content: this.sample_text},
-    {author: "Auto Mode", content: this.sample_text},
-    {author: "Auto Mode", content: this.sample_text},
-    {author: "User", content: this.sample_text},
-    {author: "ChatGPT Mode", content: this.sample_text},
-  ]
+  message = ""
+  messages: Message[] = []
+
+  constructor(private httpClient: HttpClient) {
+  }
+
+  ngOnInit(): void {
+    this.update(false)
+    this.scrollToEnd()
+    setInterval(() => this.update(false), 5000)
+  }
+
+  update(is_new_message: boolean) {
+    let data = null
+    if (is_new_message && this.message.length > 0) {
+      data = {"author": this.name, "content": this.message}
+      this.message = ""
+    }
+    this.httpClient.post(`${environment.api_url}/chat`, data).subscribe(value => {
+      this.messages = value as Message[]
+      if (is_new_message) this.scrollToEnd()
+    })
+  }
+
+  scrollToEnd() {
+    let scroll = () => {
+      let messages = document.querySelector("div.messages")!
+      messages.scrollTo(0, messages.scrollHeight * 2)
+    }
+    setTimeout(scroll, 1000)
+  }
 
 }

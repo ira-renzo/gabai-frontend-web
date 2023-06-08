@@ -1,0 +1,17 @@
+<button (click)="download()" [nzType]="'primary'" nz-button nzBlock style="margin-bottom: 1em">Downloads CSV</button>
+<button (click)="new()" [nzType]="'primary'" nz-button nzBlock style="margin-bottom: 2em">Create New Conversation</button>
+
+<nz-table #table [nzData]="topic_list">
+  <thead>
+  <tr>
+    <th nzWidth="70%">Topic</th>
+<!--    <th nzWidth="30%">Actions</th>-->
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let topic of table.data">
+    <td>{{ topic.conversation[0] }}</td>
+<!--    <td><span [routerLink]="'/news/' + news.key" nz-icon nz-tooltip="View" nzTheme="outline" nzType="eye"></span></td>-->
+  </tr>
+  </tbody>
+</nz-table>

@@ -7,7 +7,8 @@ app-chat-view :host {
 app-chat-view .messages {
   flex-grow: 1;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  overflow: scroll;
 }
 
 app-chat-view .you {
@@ -31,4 +32,10 @@ app-chat-view .ant-comment-content-author-name {
 
 app-chat-view .ant-comment-avatar {
   display: none;
+}
+
+app-chat-view {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
 }

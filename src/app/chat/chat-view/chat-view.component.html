@@ -7,9 +7,11 @@
 </div>
 
 <nz-input-group [nzAddOnAfter]="suffixButton" nzSearch nzSize="large">
-  <input nz-input placeholder="Type Something" type="text"/>
+  <input (keydown.enter)="update(true)" [(ngModel)]="message" nz-input type="text"/>
 </nz-input-group>
 
 <ng-template #suffixButton>
-  <button nz-button nzSearch nzSize="large" nzType="primary">Send</button>
+  <button (click)="update(true)" nz-button nzSearch nzSize="large" nzType="primary">
+    Send
+  </button>
 </ng-template>

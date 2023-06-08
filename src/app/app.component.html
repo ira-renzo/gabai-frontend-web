@@ -12,16 +12,19 @@
         </ul>
       </li>
 
-      <li nz-submenu nzIcon="wechat" nzOpen nzTitle="Chat">
-        <ul>
-<!--          <li nz-menu-item nzMatchRouterExact><a routerLink="/chat/list">List Chat</a></li>-->
-          <li nz-menu-item nzMatchRouterExact><a routerLink="/chat/view">View Chat</a></li>
-        </ul>
+      <li nz-menu-item nzMatchRouterExact>
+        <span nz-icon nzType="question"></span>
+        <span><a routerLink="/topics">Topics</a></span>
+      </li>
+
+      <li nz-menu-item nzMatchRouterExact>
+        <span nz-icon nzType="wechat"></span>
+        <span><a routerLink="/chat">Chat</a></span>
       </li>
     </ul>
   </nz-sider>
 
-  <nz-layout class="right-layout">
+  <nz-layout [class.in-chat]="router.url.match('/chat')" class="right-layout">
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>

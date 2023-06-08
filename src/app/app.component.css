@@ -99,3 +99,7 @@ app-validation-message {
   display: flex;
   flex-direction: column;
 }
+
+.in-chat {
+  max-height: 100vh;
+}
