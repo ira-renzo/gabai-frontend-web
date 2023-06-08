@@ -1,0 +1,18 @@
+<nz-table #table [nzData]="chat_list">
+  <thead>
+  <tr>
+    <th>Chat Room ID</th>
+    <th>Status</th>
+    <th>Last Updated</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let news of table.data">
+    <td>{{ news.title }}</td>
+    <td>{{ news.content }}</td>
+    <td>{{ news.timestamp | timestamp }}</td>
+    <td><span [routerLink]="'/news/' + news.key" nz-icon nz-tooltip="View" nzTheme="outline" nzType="eye"></span></td>
+  </tr>
+  </tbody>
+</nz-table>

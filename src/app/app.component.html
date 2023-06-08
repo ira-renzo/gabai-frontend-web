@@ -5,22 +5,17 @@
       <img alt="logo" height="372" id="logo" ngSrc="assets/icon.png" width="372">
     </div>
     <ul nz-menu nzMode="inline" nzTheme="dark">
-      <li nz-submenu nzIcon="dashboard" nzOpen nzTitle="News">
+      <li nz-submenu nzIcon="paper-clip" nzOpen nzTitle="News">
         <ul>
           <li nz-menu-item nzMatchRouterExact><a routerLink="/news">Create News</a></li>
           <li nz-menu-item nzMatchRouterExact><a routerLink="/news/list">List News</a></li>
         </ul>
       </li>
 
-      <li nz-submenu nzIcon="dashboard" nzOpen nzTitle="FAQ">
+      <li nz-submenu nzIcon="wechat" nzOpen nzTitle="Chat">
         <ul>
-          <li nz-menu-item nzMatchRouter><a>Statistics</a></li>
-        </ul>
-      </li>
-
-      <li nz-submenu nzIcon="dashboard" nzOpen nzTitle="Chat">
-        <ul>
-          <li nz-menu-item nzMatchRouter><a>Create</a></li>
+<!--          <li nz-menu-item nzMatchRouterExact><a routerLink="/chat/list">List Chat</a></li>-->
+          <li nz-menu-item nzMatchRouterExact><a routerLink="/chat/view">View Chat</a></li>
         </ul>
       </li>
     </ul>

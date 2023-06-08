@@ -1,0 +1,15 @@
+<div class="messages">
+  <ng-container *ngFor="let message of messages">
+    <nz-comment [class.you]="message.author == name" [nzAuthor]="message.author">
+      <nz-comment-content>{{message.content}}</nz-comment-content>
+    </nz-comment>
+  </ng-container>
+</div>
+
+<nz-input-group [nzAddOnAfter]="suffixButton" nzSearch nzSize="large">
+  <input nz-input placeholder="Type Something" type="text"/>
+</nz-input-group>
+
+<ng-template #suffixButton>
+  <button nz-button nzSearch nzSize="large" nzType="primary">Send</button>
+</ng-template>
