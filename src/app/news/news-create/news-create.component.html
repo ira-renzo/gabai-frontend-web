@@ -17,13 +17,13 @@
   <nz-form-item>
     <nz-form-label>Attachments</nz-form-label>
     <nz-form-control>
-      <nz-upload [(nzFileList)]="file_list" [nzBeforeUpload]="manualAdd" [nzMultiple]="true" nzType="drag">
+      <nz-upload [(nzFileList)]="file_list" [nzBeforeUpload]="manualAdd" [nzMultiple]="true" nzType="drag" [nzDownload]="download">
         <p class="ant-upload-drag-icon"><span nz-icon nzType="inbox"></span></p>
         <p class="ant-upload-text">Click or Drag File</p>
       </nz-upload>
     </nz-form-control>
   </nz-form-item>
 
-  <button (click)="submit()" [nzType]="'primary'" nz-button nzBlock>Submit</button>
+  <button (click)="submit()" [hidden]="id" [nzType]="'primary'" nz-button nzBlock>Submit</button>
 
 </form>

@@ -17,13 +17,8 @@ export class NewsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpClient.get(`${environment.api_url}/news/list`).subscribe(response => {
-      let news_list: News[] = Object.values(response)
-      // news_list.map(news => {
-      //   news.timestamp = new Date(news.timestamp) as any
-      //   return news.timestamp
-      // })
-      this.news_list = news_list
+      Object.entries(response).forEach(([key, value]: [string, News]) => value.key = key)
+      this.news_list = Object.values(response)
     })
   }
-
 }

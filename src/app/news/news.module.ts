@@ -13,6 +13,7 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzToolTipModule} from "ng-zorro-antd/tooltip";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {NzToolTipModule} from "ng-zorro-antd/tooltip";
     NzIconModule,
     NzTableModule,
     NzDividerModule,
-    NzToolTipModule
+    NzToolTipModule,
+    SharedModule
   ]
 })
 export class NewsModule {

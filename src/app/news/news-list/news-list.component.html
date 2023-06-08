@@ -1,9 +1,9 @@
 <nz-table #table [nzData]="news_list">
   <thead>
   <tr>
-    <th nzWidth="35%">Title</th>
-    <th nzWidth="35%">Content</th>
-    <th nzWidth="20%">Timestamp</th>
+    <th nzWidth="15%">Title</th>
+    <th nzWidth="50%">Content</th>
+    <th nzWidth="25%">Timestamp</th>
     <th nzWidth="10%">Actions</th>
   </tr>
   </thead>
@@ -11,8 +11,8 @@
   <tr *ngFor="let news of table.data">
     <td>{{ news.title }}</td>
     <td>{{ news.content }}</td>
-    <td>{{ news.timestamp }}</td>
-    <td><span nz-icon nz-tooltip="View" nzTheme="outline" nzType="eye"></span></td>
+    <td>{{ news.timestamp | timestamp }}</td>
+    <td><span [routerLink]="'/news/' + news.key" nz-icon nz-tooltip="View" nzTheme="outline" nzType="eye"></span></td>
   </tr>
   </tbody>
 </nz-table>
