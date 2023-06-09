@@ -15,7 +15,7 @@ export interface Message {
 })
 export class ChatViewComponent implements OnInit {
 
-  name = "User"
+  name = "Employee"
   message = ""
   messages: Message[] = []
 
@@ -45,7 +45,7 @@ export class ChatViewComponent implements OnInit {
       let messages = document.querySelector("div.messages")!
       messages.scrollTo(0, messages.scrollHeight * 2)
     }
-    setTimeout(scroll, 1000)
+    setTimeout(scroll, 2000)
   }
 
 }
